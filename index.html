@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finances Publiques · France</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="brand-flag">🇫🇷</span>
+        <div>
+          <div class="brand-title">Finances Publiques</div>
+          <div class="brand-sub">République Française · 2019–2024</div>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <button class="nav-btn active" data-section="home">Vue d'ensemble</button>
+        <button class="nav-btn" data-section="budget">Budget</button>
+        <button class="nav-btn" data-section="dette">Dette</button>
+        <button class="nav-btn" data-section="recettes">Recettes</button>
+        <button class="nav-btn" data-section="deficit">Déficit</button>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="nav-btn active" data-section="home">Vue d'ensemble</button>
+    <button class="nav-btn" data-section="budget">Budget</button>
+    <button class="nav-btn" data-section="dette">Dette</button>
+    <button class="nav-btn" data-section="recettes">Recettes</button>
+    <button class="nav-btn" data-section="deficit">Déficit</button>
+  </div>
+
+  <main id="app">
+
+    <!-- ==================== SECTION HOME ==================== -->
+    <section id="section-home" class="section active">
+      <div class="hero">
+        <div class="hero-eyebrow">Données publiques vérifiées · Rapport 2024</div>
+        <h1 class="hero-title">L'état des<br><em>finances françaises</em></h1>
+        <p class="hero-desc">Analyse structurée des données budgétaires, fiscales et macroéconomiques de l'État français. Sources : INSEE, Direction du Budget, Cour des Comptes, Eurostat.</p>
+      </div>
+
+      <div class="kpi-grid" id="kpi-grid">
+        <!-- KPI cards injected by JS -->
+      </div>
+
+      <div class="home-detail-panel" id="home-detail-panel">
+        <div class="detail-close-bar">
+          <span id="detail-panel-title" class="detail-panel-label"></span>
+          <button class="close-btn" id="close-detail">✕</button>
+        </div>
+        <div class="detail-body">
+          <div class="detail-kpi-big" id="detail-kpi-big"></div>
+          <div class="detail-kpi-label" id="detail-kpi-label"></div>
+          <div class="detail-chart-wrap">
+            <canvas id="detail-chart" height="260"></canvas>
+          </div>
+          <div class="detail-source" id="detail-source"></div>
+          <div class="detail-related" id="detail-related"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION BUDGET ==================== -->
+    <section id="section-budget" class="section">
+      <div class="page-header">
+        <div class="page-eyebrow">Budget de l'État</div>
+        <h2 class="page-title">Dépenses & Solde budgétaire</h2>
+        <p class="page-desc">Évolution des dépenses totales, répartition par mission ministérielle et solde budgétaire de l'État.</p>
+      </div>
+      <div class="sub-kpi-row" id="budget-kpis"></div>
+      <div class="chart-grid">
+        <div class="chart-card full-width">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Dépenses totales de l'État (Mds €)</div>
+            <div class="chart-card-source">Source : Direction du Budget, PLF 2024</div>
+          </div>
+          <canvas id="chart-depenses" height="200"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Solde budgétaire (Mds €)</div>
+            <div class="chart-card-source">Source : Direction du Budget</div>
+          </div>
+          <canvas id="chart-solde" height="220"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Dépenses par mission (2024)</div>
+            <div class="chart-card-source">Source : PLF 2024</div>
+          </div>
+          <canvas id="chart-missions" height="220"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION DETTE ==================== -->
+    <section id="section-dette" class="section">
+      <div class="page-header">
+        <div class="page-eyebrow">Dette publique</div>
+        <h2 class="page-title">Endettement & charge financière</h2>
+        <p class="page-desc">Évolution de la dette publique en volume et en proportion du PIB, coût de la dette et comparaison européenne.</p>
+      </div>
+      <div class="sub-kpi-row" id="dette-kpis"></div>
+      <div class="chart-grid">
+        <div class="chart-card full-width">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Dette publique / PIB (%)</div>
+            <div class="chart-card-source">Source : INSEE, Eurostat</div>
+          </div>
+          <canvas id="chart-dette-pib" height="200"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Dette en valeur absolue (Mds €)</div>
+            <div class="chart-card-source">Source : Banque de France</div>
+          </div>
+          <canvas id="chart-dette-abs" height="220"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Charge d'intérêts (Mds €)</div>
+            <div class="chart-card-source">Source : Direction du Budget</div>
+          </div>
+          <canvas id="chart-interets" height="220"></canvas>
+        </div>
+        <div class="chart-card full-width">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Comparaison européenne – Dette / PIB 2023</div>
+            <div class="chart-card-source">Source : Eurostat 2023</div>
+          </div>
+          <canvas id="chart-dette-ue" height="200"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION RECETTES ==================== -->
+    <section id="section-recettes" class="section">
+      <div class="page-header">
+        <div class="page-eyebrow">Recettes fiscales</div>
+        <h2 class="page-title">Fiscalité & prélèvements</h2>
+        <p class="page-desc">Structure des recettes de l'État : TVA, impôt sur le revenu, impôt sur les sociétés et évolution des prélèvements obligatoires.</p>
+      </div>
+      <div class="sub-kpi-row" id="recettes-kpis"></div>
+      <div class="chart-grid">
+        <div class="chart-card full-width">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Recettes totales de l'État (Mds €)</div>
+            <div class="chart-card-source">Source : DGFiP, PLF 2024</div>
+          </div>
+          <canvas id="chart-recettes-total" height="200"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Répartition par impôt (2024)</div>
+            <div class="chart-card-source">Source : PLF 2024</div>
+          </div>
+          <canvas id="chart-recettes-repartition" height="220"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Prélèvements obligatoires / PIB (%)</div>
+            <div class="chart-card-source">Source : INSEE</div>
+          </div>
+          <canvas id="chart-po-pib" height="220"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION DÉFICIT ==================== -->
+    <section id="section-deficit" class="section">
+      <div class="page-header">
+        <div class="page-eyebrow">Déficit public</div>
+        <h2 class="page-title">Écart recettes / dépenses</h2>
+        <p class="page-desc">Évolution du déficit public en % du PIB, comparaison avec le seuil de Maastricht (−3%) et positionnement européen.</p>
+      </div>
+      <div class="sub-kpi-row" id="deficit-kpis"></div>
+      <div class="chart-grid">
+        <div class="chart-card full-width">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Déficit public / PIB (%) – seuil Maastricht à −3%</div>
+            <div class="chart-card-source">Source : INSEE, Eurostat</div>
+          </div>
+          <canvas id="chart-deficit-pib" height="220"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Déficit en valeur absolue (Mds €)</div>
+            <div class="chart-card-source">Source : Cour des Comptes 2024</div>
+          </div>
+          <canvas id="chart-deficit-abs" height="220"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Comparaison UE – Déficit / PIB 2023</div>
+            <div class="chart-card-source">Source : Eurostat 2023</div>
+          </div>
+          <canvas id="chart-deficit-ue" height="220"></canvas>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-sources">
+        <strong>Sources</strong> : INSEE · Direction du Budget · DGFiP · Cour des Comptes · Banque de France · Eurostat · PLF 2024 · FMI
+      </div>
+      <div class="footer-note">
+        Données indicatives basées sur les documents officiels. Dernière mise à jour : 2024. Ce site est 100% statique, aucune donnée collectée.
+      </div>
+      <div class="footer-github">
+        <a href="https://github.com" target="_blank" rel="noopener">Voir sur GitHub Pages</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

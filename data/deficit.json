@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "source": "INSEE, Eurostat, Cour des Comptes, PLF 2024",
+    "unite": "% du PIB / milliards d'euros",
+    "derniere_maj": "2024"
+  },
+  "deficit_pib": {
+    "label": "Déficit public / PIB (%)",
+    "serie": [
+      { "annee": 2019, "valeur": -3.1 },
+      { "annee": 2020, "valeur": -8.9 },
+      { "annee": 2021, "valeur": -6.5 },
+      { "annee": 2022, "valeur": -4.7 },
+      { "annee": 2023, "valeur": -5.5 },
+      { "annee": 2024, "valeur": -5.1 }
+    ]
+  },
+  "deficit_absolu": {
+    "label": "Déficit public (Mds €)",
+    "serie": [
+      { "annee": 2019, "valeur": -73.2 },
+      { "annee": 2020, "valeur": -211.7 },
+      { "annee": 2021, "valeur": -161.0 },
+      { "annee": 2022, "valeur": -124.4 },
+      { "annee": 2023, "valeur": -154.0 },
+      { "annee": 2024, "valeur": -143.9 }
+    ]
+  },
+  "deficit_maastricht": {
+    "label": "Seuil Maastricht vs Déficit français",
+    "seuil": -3.0,
+    "serie": [
+      { "annee": 2019, "valeur": -3.1 },
+      { "annee": 2020, "valeur": -8.9 },
+      { "annee": 2021, "valeur": -6.5 },
+      { "annee": 2022, "valeur": -4.7 },
+      { "annee": 2023, "valeur": -5.5 },
+      { "annee": 2024, "valeur": -5.1 }
+    ]
+  },
+  "comparaison_ue_deficit": {
+    "label": "Déficit / PIB comparaison UE (2023, %)",
+    "serie": [
+      { "pays": "Italie", "valeur": -7.2 },
+      { "pays": "France", "valeur": -5.5 },
+      { "pays": "Belgique", "valeur": -5.5 },
+      { "pays": "Espagne", "valeur": -3.6 },
+      { "pays": "Zone Euro", "valeur": -3.5 },
+      { "pays": "Pays-Bas", "valeur": -0.3 },
+      { "pays": "Allemagne", "valeur": -2.5 }
+    ]
+  }
+}

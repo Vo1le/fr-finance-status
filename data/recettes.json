@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "source": "DGFiP, PLF 2024, Rapport Cour des Comptes",
+    "unite": "milliards d'euros",
+    "derniere_maj": "2024"
+  },
+  "recettes_totales": {
+    "label": "Recettes totales de l'État (Mds €)",
+    "serie": [
+      { "annee": 2019, "valeur": 347.4 },
+      { "annee": 2020, "valeur": 349.3 },
+      { "annee": 2021, "valeur": 396.6 },
+      { "annee": 2022, "valeur": 393.8 },
+      { "annee": 2023, "valeur": 359.4 },
+      { "annee": 2024, "valeur": 394.3 }
+    ]
+  },
+  "recettes_par_impot": {
+    "label": "Structure des recettes fiscales (2024, Mds €)",
+    "serie": [
+      { "impot": "TVA", "valeur": 196.8 },
+      { "impot": "Impôt sur le revenu", "valeur": 107.2 },
+      { "impot": "Impôt sur les sociétés", "valeur": 61.7 },
+      { "impot": "TICPE (carburants)", "valeur": 14.6 },
+      { "impot": "Autres taxes", "valeur": 32.1 }
+    ]
+  },
+  "tva": {
+    "label": "Recettes TVA (Mds €)",
+    "serie": [
+      { "annee": 2019, "valeur": 165.3 },
+      { "annee": 2020, "valeur": 149.4 },
+      { "annee": 2021, "valeur": 174.9 },
+      { "annee": 2022, "valeur": 189.2 },
+      { "annee": 2023, "valeur": 193.7 },
+      { "annee": 2024, "valeur": 196.8 }
+    ]
+  },
+  "ir": {
+    "label": "Impôt sur le revenu (Mds €)",
+    "serie": [
+      { "annee": 2019, "valeur": 78.3 },
+      { "annee": 2020, "valeur": 75.8 },
+      { "annee": 2021, "valeur": 80.9 },
+      { "annee": 2022, "valeur": 93.8 },
+      { "annee": 2023, "valeur": 105.0 },
+      { "annee": 2024, "valeur": 107.2 }
+    ]
+  },
+  "is": {
+    "label": "Impôt sur les sociétés (Mds €)",
+    "serie": [
+      { "annee": 2019, "valeur": 32.3 },
+      { "annee": 2020, "valeur": 31.9 },
+      { "annee": 2021, "valeur": 45.4 },
+      { "annee": 2022, "valeur": 58.8 },
+      { "annee": 2023, "valeur": 57.2 },
+      { "annee": 2024, "valeur": 61.7 }
+    ]
+  }
+}

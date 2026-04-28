@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "source": "INSEE, Eurostat, Banque de France",
+    "unite": "milliards d'euros / % du PIB",
+    "derniere_maj": "2024"
+  },
+  "dette_absolue": {
+    "label": "Dette publique (Mds €)",
+    "serie": [
+      { "annee": 2019, "valeur": 2380.1 },
+      { "annee": 2020, "valeur": 2650.1 },
+      { "annee": 2021, "valeur": 2813.4 },
+      { "annee": 2022, "valeur": 2950.0 },
+      { "annee": 2023, "valeur": 3101.2 },
+      { "annee": 2024, "valeur": 3228.4 }
+    ]
+  },
+  "dette_pib": {
+    "label": "Dette / PIB (%)",
+    "serie": [
+      { "annee": 2019, "valeur": 97.4 },
+      { "annee": 2020, "valeur": 114.6 },
+      { "annee": 2021, "valeur": 112.9 },
+      { "annee": 2022, "valeur": 111.6 },
+      { "annee": 2023, "valeur": 110.6 },
+      { "annee": 2024, "valeur": 112.0 }
+    ]
+  },
+  "charge_interets": {
+    "label": "Charge d'intérêts de la dette (Mds €)",
+    "serie": [
+      { "annee": 2019, "valeur": 35.2 },
+      { "annee": 2020, "valeur": 30.8 },
+      { "annee": 2021, "valeur": 30.4 },
+      { "annee": 2022, "valeur": 40.5 },
+      { "annee": 2023, "valeur": 51.9 },
+      { "annee": 2024, "valeur": 59.8 }
+    ]
+  },
+  "comparaison_ue": {
+    "label": "Dette / PIB comparaison UE (2023, %)",
+    "serie": [
+      { "pays": "Grèce", "valeur": 161.9 },
+      { "pays": "Italie", "valeur": 137.3 },
+      { "pays": "France", "valeur": 110.6 },
+      { "pays": "Espagne", "valeur": 107.7 },
+      { "pays": "Belgique", "valeur": 105.2 },
+      { "pays": "Zone Euro", "valeur": 88.6 },
+      { "pays": "Allemagne", "valeur": 63.6 },
+      { "pays": "Pays-Bas", "valeur": 46.5 }
+    ]
+  }
+}

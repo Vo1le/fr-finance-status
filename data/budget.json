@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "source": "Direction du Budget, PLF 2024, Lois de Finances",
+    "unite": "milliards d'euros",
+    "derniere_maj": "2024"
+  },
+  "depenses_totales": {
+    "label": "Dépenses totales de l'État",
+    "serie": [
+      { "annee": 2019, "valeur": 440.1 },
+      { "annee": 2020, "valeur": 567.8 },
+      { "annee": 2021, "valeur": 567.3 },
+      { "annee": 2022, "valeur": 516.0 },
+      { "annee": 2023, "valeur": 532.4 },
+      { "annee": 2024, "valeur": 548.3 }
+    ]
+  },
+  "depenses_par_mission": {
+    "label": "Dépenses par mission (2024, Mds€)",
+    "serie": [
+      { "mission": "Enseignement scolaire", "valeur": 79.6 },
+      { "mission": "Défense", "valeur": 47.2 },
+      { "mission": "Recherche & Enseignement sup.", "valeur": 31.8 },
+      { "mission": "Solidarité & intégration", "valeur": 29.3 },
+      { "mission": "Travail & emploi", "valeur": 23.1 },
+      { "mission": "Sécurités", "valeur": 22.9 },
+      { "mission": "Justice", "valeur": 11.5 },
+      { "mission": "Agriculture", "valeur": 4.9 },
+      { "mission": "Autres", "valeur": 82.4 }
+    ]
+  },
+  "solde_budgetaire": {
+    "label": "Solde budgétaire de l'État",
+    "serie": [
+      { "annee": 2019, "valeur": -92.7 },
+      { "annee": 2020, "valeur": -178.1 },
+      { "annee": 2021, "valeur": -170.7 },
+      { "annee": 2022, "valeur": -151.3 },
+      { "annee": 2023, "valeur": -173.0 },
+      { "annee": 2024, "valeur": -154.0 }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "source": "INSEE, Banque de France, FMI",
+    "unite": "milliards d'euros / %",
+    "derniere_maj": "2024"
+  },
+  "pib": {
+    "label": "PIB français courant (Mds €)",
+    "serie": [
+      { "annee": 2019, "valeur": 2361.6 },
+      { "annee": 2020, "valeur": 2303.9 },
+      { "annee": 2021, "valeur": 2499.8 },
+      { "annee": 2022, "valeur": 2643.7 },
+      { "annee": 2023, "valeur": 2800.6 },
+      { "annee": 2024, "valeur": 2883.1 }
+    ]
+  },
+  "croissance": {
+    "label": "Croissance du PIB réel (%)",
+    "serie": [
+      { "annee": 2019, "valeur": 1.8 },
+      { "annee": 2020, "valeur": -7.8 },
+      { "annee": 2021, "valeur": 6.4 },
+      { "annee": 2022, "valeur": 2.5 },
+      { "annee": 2023, "valeur": 0.9 },
+      { "annee": 2024, "valeur": 1.1 }
+    ]
+  },
+  "prelevements_obligatoires": {
+    "label": "Prélèvements obligatoires / PIB (%)",
+    "serie": [
+      { "annee": 2019, "valeur": 44.1 },
+      { "annee": 2020, "valeur": 44.5 },
+      { "annee": 2021, "valeur": 44.9 },
+      { "annee": 2022, "valeur": 45.4 },
+      { "annee": 2023, "valeur": 43.8 },
+      { "annee": 2024, "valeur": 43.5 }
+    ]
+  },
+  "depenses_publiques_pib": {
+    "label": "Dépenses publiques / PIB (%)",
+    "serie": [
+      { "annee": 2019, "valeur": 55.3 },
+      { "annee": 2020, "valeur": 61.8 },
+      { "annee": 2021, "valeur": 58.8 },
+      { "annee": 2022, "valeur": 58.0 },
+      { "annee": 2023, "valeur": 57.3 },
+      { "annee": 2024, "valeur": 56.4 }
+    ]
+  }
+}
