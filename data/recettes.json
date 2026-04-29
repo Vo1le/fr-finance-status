@@ -18,11 +18,13 @@
   "recettes_par_impot": {
     "label": "Structure des recettes fiscales (2024, Mds €)",
     "serie": [
-      { "impot": "TVA", "valeur": 196.8 },
-      { "impot": "Impôt sur le revenu", "valeur": 107.2 },
-      { "impot": "Impôt sur les sociétés", "valeur": 61.7 },
-      { "impot": "TICPE (carburants)", "valeur": 14.6 },
-      { "impot": "Autres taxes", "valeur": 32.1 }
+      { "impot": "TVA",               "valeur": 196.8 },
+      { "impot": "Impôt sur le revenu","valeur": 107.2 },
+      { "impot": "Impôt sur les sociétés","valeur": 61.7 },
+      { "impot": "TICPE (carburants)","valeur": 14.6 },
+      { "impot": "Droits de succession","valeur": 20.1 },
+      { "impot": "Taxe foncière",     "valeur": 42.3 },
+      { "impot": "Autres taxes",      "valeur": 18.4 }
     ]
   },
   "tva": {
@@ -56,6 +58,32 @@
       { "annee": 2022, "valeur": 58.8 },
       { "annee": 2023, "valeur": 57.2 },
       { "annee": 2024, "valeur": 61.7 }
+    ]
+  },
+  "prelevements_obligatoires": {
+    "label": "Prélèvements obligatoires / PIB (%)",
+    "serie": [
+      { "annee": 2019, "valeur": 44.1 },
+      { "annee": 2020, "valeur": 44.5 },
+      { "annee": 2021, "valeur": 44.9 },
+      { "annee": 2022, "valeur": 45.4 },
+      { "annee": 2023, "valeur": 43.8 },
+      { "annee": 2024, "valeur": 43.5 }
+    ]
+  },
+  "po_comparaison_ue": {
+    "label": "Prélèvements obligatoires / PIB UE 2023 (%)",
+    "serie": [
+      { "pays": "France",    "valeur": 43.8 },
+      { "pays": "Belgique",  "valeur": 44.1 },
+      { "pays": "Danemark",  "valeur": 43.4 },
+      { "pays": "Autriche",  "valeur": 42.5 },
+      { "pays": "Italie",    "valeur": 42.4 },
+      { "pays": "Suède",     "valeur": 41.3 },
+      { "pays": "Zone Euro", "valeur": 40.1 },
+      { "pays": "Espagne",   "valeur": 38.2 },
+      { "pays": "Allemagne", "valeur": 39.3 },
+      { "pays": "USA",       "valeur": 27.1 }
     ]
   }
 }

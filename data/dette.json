@@ -1,7 +1,7 @@
 {
   "meta": {
-    "source": "INSEE, Eurostat, Banque de France",
-    "unite": "milliards d'euros / % du PIB",
+    "source": "INSEE, Eurostat, Banque de France, Agence France Trésor",
+    "unite": "milliards d'euros / % / années",
     "derniere_maj": "2024"
   },
   "dette_absolue": {
@@ -37,17 +37,61 @@
       { "annee": 2024, "valeur": 59.8 }
     ]
   },
+  "dette_par_habitant": {
+    "label": "Dette par habitant (€)",
+    "serie": [
+      { "annee": 2019, "valeur": 35480 },
+      { "annee": 2020, "valeur": 39450 },
+      { "annee": 2021, "valeur": 41880 },
+      { "annee": 2022, "valeur": 43720 },
+      { "annee": 2023, "valeur": 45810 },
+      { "annee": 2024, "valeur": 47600 }
+    ]
+  },
+  "dette_par_sous_secteur": {
+    "label": "Structure de la dette publique 2024 (Mds €)",
+    "serie": [
+      { "secteur": "État central",          "valeur": 2481.2 },
+      { "secteur": "Sécurité sociale",      "valeur": 256.4 },
+      { "secteur": "Collectivités locales", "valeur": 241.8 },
+      { "secteur": "Divers administrations","valeur": 249.0 }
+    ]
+  },
+  "taux_10ans": {
+    "label": "Taux OAT 10 ans (%)",
+    "serie": [
+      { "annee": 2019, "valeur": 0.12 },
+      { "annee": 2020, "valeur": 0.00 },
+      { "annee": 2021, "valeur": -0.13 },
+      { "annee": 2022, "valeur": 2.57 },
+      { "annee": 2023, "valeur": 3.20 },
+      { "annee": 2024, "valeur": 3.15 }
+    ]
+  },
+  "maturite_moyenne": {
+    "label": "Maturité moyenne de la dette (années)",
+    "serie": [
+      { "annee": 2019, "valeur": 8.3 },
+      { "annee": 2020, "valeur": 8.5 },
+      { "annee": 2021, "valeur": 8.7 },
+      { "annee": 2022, "valeur": 8.8 },
+      { "annee": 2023, "valeur": 9.1 },
+      { "annee": 2024, "valeur": 9.4 }
+    ]
+  },
   "comparaison_ue": {
     "label": "Dette / PIB comparaison UE (2023, %)",
     "serie": [
-      { "pays": "Grèce", "valeur": 161.9 },
-      { "pays": "Italie", "valeur": 137.3 },
-      { "pays": "France", "valeur": 110.6 },
-      { "pays": "Espagne", "valeur": 107.7 },
-      { "pays": "Belgique", "valeur": 105.2 },
-      { "pays": "Zone Euro", "valeur": 88.6 },
-      { "pays": "Allemagne", "valeur": 63.6 },
-      { "pays": "Pays-Bas", "valeur": 46.5 }
+      { "pays": "Grèce",       "valeur": 161.9 },
+      { "pays": "Italie",      "valeur": 137.3 },
+      { "pays": "France",      "valeur": 110.6 },
+      { "pays": "Espagne",     "valeur": 107.7 },
+      { "pays": "Belgique",    "valeur": 105.2 },
+      { "pays": "Portugal",    "valeur": 99.1  },
+      { "pays": "Zone Euro",   "valeur": 88.6  },
+      { "pays": "Autriche",    "valeur": 77.8  },
+      { "pays": "Allemagne",   "valeur": 63.6  },
+      { "pays": "Pays-Bas",    "valeur": 46.5  }
     ]
   }
 }

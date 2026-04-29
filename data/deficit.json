@@ -26,28 +26,28 @@
       { "annee": 2024, "valeur": -143.9 }
     ]
   },
-  "deficit_maastricht": {
-    "label": "Seuil Maastricht vs Déficit français",
-    "seuil": -3.0,
+  "solde_primaire": {
+    "label": "Solde primaire / PIB (hors intérêts, %)",
     "serie": [
-      { "annee": 2019, "valeur": -3.1 },
-      { "annee": 2020, "valeur": -8.9 },
-      { "annee": 2021, "valeur": -6.5 },
-      { "annee": 2022, "valeur": -4.7 },
-      { "annee": 2023, "valeur": -5.5 },
-      { "annee": 2024, "valeur": -5.1 }
+      { "annee": 2019, "valeur": -1.0 },
+      { "annee": 2020, "valeur": -7.4 },
+      { "annee": 2021, "valeur": -4.9 },
+      { "annee": 2022, "valeur": -2.7 },
+      { "annee": 2023, "valeur": -3.3 },
+      { "annee": 2024, "valeur": -2.5 }
     ]
   },
   "comparaison_ue_deficit": {
     "label": "Déficit / PIB comparaison UE (2023, %)",
     "serie": [
-      { "pays": "Italie", "valeur": -7.2 },
-      { "pays": "France", "valeur": -5.5 },
-      { "pays": "Belgique", "valeur": -5.5 },
-      { "pays": "Espagne", "valeur": -3.6 },
+      { "pays": "Italie",    "valeur": -7.2 },
+      { "pays": "France",    "valeur": -5.5 },
+      { "pays": "Belgique",  "valeur": -5.5 },
+      { "pays": "Espagne",   "valeur": -3.6 },
       { "pays": "Zone Euro", "valeur": -3.5 },
-      { "pays": "Pays-Bas", "valeur": -0.3 },
-      { "pays": "Allemagne", "valeur": -2.5 }
+      { "pays": "Autriche",  "valeur": -2.7 },
+      { "pays": "Allemagne", "valeur": -2.5 },
+      { "pays": "Pays-Bas",  "valeur": -0.3 }
     ]
   }
 }

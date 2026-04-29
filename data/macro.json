@@ -26,6 +26,28 @@
       { "annee": 2024, "valeur": 1.1 }
     ]
   },
+  "inflation": {
+    "label": "Inflation (IPC, %)",
+    "serie": [
+      { "annee": 2019, "valeur": 1.3 },
+      { "annee": 2020, "valeur": 0.5 },
+      { "annee": 2021, "valeur": 2.1 },
+      { "annee": 2022, "valeur": 5.9 },
+      { "annee": 2023, "valeur": 4.9 },
+      { "annee": 2024, "valeur": 2.3 }
+    ]
+  },
+  "chomage": {
+    "label": "Taux de chômage (%)",
+    "serie": [
+      { "annee": 2019, "valeur": 8.5 },
+      { "annee": 2020, "valeur": 8.0 },
+      { "annee": 2021, "valeur": 7.9 },
+      { "annee": 2022, "valeur": 7.3 },
+      { "annee": 2023, "valeur": 7.4 },
+      { "annee": 2024, "valeur": 7.3 }
+    ]
+  },
   "prelevements_obligatoires": {
     "label": "Prélèvements obligatoires / PIB (%)",
     "serie": [

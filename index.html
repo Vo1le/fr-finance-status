@@ -1,233 +1,457 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Finances Publiques · France</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header id="site-header">
-    <div class="header-inner">
-      <div class="header-brand">
-        <span class="brand-flag">🇫🇷</span>
-        <div>
-          <div class="brand-title">Finances Publiques</div>
-          <div class="brand-sub">République Française · 2019–2024</div>
-        </div>
+<header id="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <span class="brand-flag">🇫🇷</span>
+      <div>
+        <div class="brand-title">Finances Publiques</div>
+        <div class="brand-sub">République Française · 2010–2024</div>
       </div>
-      <nav class="header-nav">
-        <button class="nav-btn active" data-section="home">Vue d'ensemble</button>
-        <button class="nav-btn" data-section="budget">Budget</button>
-        <button class="nav-btn" data-section="dette">Dette</button>
-        <button class="nav-btn" data-section="recettes">Recettes</button>
-        <button class="nav-btn" data-section="deficit">Déficit</button>
-      </nav>
-      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-  </header>
-
-  <!-- MOBILE NAV -->
-  <div class="mobile-nav" id="mobileNav">
-    <button class="nav-btn active" data-section="home">Vue d'ensemble</button>
-    <button class="nav-btn" data-section="budget">Budget</button>
-    <button class="nav-btn" data-section="dette">Dette</button>
-    <button class="nav-btn" data-section="recettes">Recettes</button>
-    <button class="nav-btn" data-section="deficit">Déficit</button>
+    <nav class="header-nav" id="mainNav">
+      <button class="nav-btn active" data-section="home">Vue d'ensemble</button>
+      <button class="nav-btn" data-section="budget">Budget</button>
+      <button class="nav-btn" data-section="dette">Dette</button>
+      <button class="nav-btn" data-section="recettes">Recettes</button>
+      <button class="nav-btn" data-section="deficit">Déficit</button>
+      <button class="nav-btn" data-section="regions">Régions</button>
+      <button class="nav-btn" data-section="comparateur">Comparateur</button>
+      <button class="nav-btn" data-section="tendances">Tendances</button>
+    </nav>
+    <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
   </div>
+</header>
 
-  <main id="app">
+<div class="mobile-nav" id="mobileNav">
+  <button class="nav-btn" data-section="home">Vue d'ensemble</button>
+  <button class="nav-btn" data-section="budget">Budget</button>
+  <button class="nav-btn" data-section="dette">Dette</button>
+  <button class="nav-btn" data-section="recettes">Recettes</button>
+  <button class="nav-btn" data-section="deficit">Déficit</button>
+  <button class="nav-btn" data-section="regions">Régions</button>
+  <button class="nav-btn" data-section="comparateur">Comparateur</button>
+  <button class="nav-btn" data-section="tendances">Tendances</button>
+</div>
 
-    <!-- ==================== SECTION HOME ==================== -->
-    <section id="section-home" class="section active">
-      <div class="hero">
-        <div class="hero-eyebrow">Données publiques vérifiées · Rapport 2024</div>
-        <h1 class="hero-title">L'état des<br><em>finances françaises</em></h1>
-        <p class="hero-desc">Analyse structurée des données budgétaires, fiscales et macroéconomiques de l'État français. Sources : INSEE, Direction du Budget, Cour des Comptes, Eurostat.</p>
+<main id="app">
+
+  <!-- ═══════════════ HOME ═══════════════ -->
+  <section id="section-home" class="section active">
+    <div class="hero">
+      <div class="hero-eyebrow">Données publiques vérifiées · Rapport 2024</div>
+      <h1 class="hero-title">L'état des<br><em>finances françaises</em></h1>
+      <p class="hero-desc">Analyse structurée des données budgétaires, fiscales et macroéconomiques de l'État français. Sources : INSEE, Direction du Budget, Cour des Comptes, Eurostat, Banque de France.</p>
+    </div>
+    <div class="kpi-grid" id="kpi-grid"></div>
+    <div class="home-detail-panel" id="home-detail-panel">
+      <div class="detail-close-bar">
+        <span id="detail-panel-title" class="detail-panel-label"></span>
+        <button class="close-btn" id="close-detail">✕</button>
       </div>
-
-      <div class="kpi-grid" id="kpi-grid">
-        <!-- KPI cards injected by JS -->
-      </div>
-
-      <div class="home-detail-panel" id="home-detail-panel">
-        <div class="detail-close-bar">
-          <span id="detail-panel-title" class="detail-panel-label"></span>
-          <button class="close-btn" id="close-detail">✕</button>
-        </div>
-        <div class="detail-body">
+      <div class="detail-body">
+        <div class="detail-left">
           <div class="detail-kpi-big" id="detail-kpi-big"></div>
           <div class="detail-kpi-label" id="detail-kpi-label"></div>
-          <div class="detail-chart-wrap">
-            <canvas id="detail-chart" height="260"></canvas>
-          </div>
           <div class="detail-source" id="detail-source"></div>
           <div class="detail-related" id="detail-related"></div>
         </div>
-      </div>
-    </section>
-
-    <!-- ==================== SECTION BUDGET ==================== -->
-    <section id="section-budget" class="section">
-      <div class="page-header">
-        <div class="page-eyebrow">Budget de l'État</div>
-        <h2 class="page-title">Dépenses & Solde budgétaire</h2>
-        <p class="page-desc">Évolution des dépenses totales, répartition par mission ministérielle et solde budgétaire de l'État.</p>
-      </div>
-      <div class="sub-kpi-row" id="budget-kpis"></div>
-      <div class="chart-grid">
-        <div class="chart-card full-width">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Dépenses totales de l'État (Mds €)</div>
-            <div class="chart-card-source">Source : Direction du Budget, PLF 2024</div>
-          </div>
-          <canvas id="chart-depenses" height="200"></canvas>
+        <div class="detail-chart-wrap">
+          <canvas id="detail-chart"></canvas>
         </div>
-        <div class="chart-card">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Solde budgétaire (Mds €)</div>
-            <div class="chart-card-source">Source : Direction du Budget</div>
-          </div>
-          <canvas id="chart-solde" height="220"></canvas>
-        </div>
-        <div class="chart-card">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Dépenses par mission (2024)</div>
-            <div class="chart-card-source">Source : PLF 2024</div>
-          </div>
-          <canvas id="chart-missions" height="220"></canvas>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== SECTION DETTE ==================== -->
-    <section id="section-dette" class="section">
-      <div class="page-header">
-        <div class="page-eyebrow">Dette publique</div>
-        <h2 class="page-title">Endettement & charge financière</h2>
-        <p class="page-desc">Évolution de la dette publique en volume et en proportion du PIB, coût de la dette et comparaison européenne.</p>
-      </div>
-      <div class="sub-kpi-row" id="dette-kpis"></div>
-      <div class="chart-grid">
-        <div class="chart-card full-width">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Dette publique / PIB (%)</div>
-            <div class="chart-card-source">Source : INSEE, Eurostat</div>
-          </div>
-          <canvas id="chart-dette-pib" height="200"></canvas>
-        </div>
-        <div class="chart-card">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Dette en valeur absolue (Mds €)</div>
-            <div class="chart-card-source">Source : Banque de France</div>
-          </div>
-          <canvas id="chart-dette-abs" height="220"></canvas>
-        </div>
-        <div class="chart-card">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Charge d'intérêts (Mds €)</div>
-            <div class="chart-card-source">Source : Direction du Budget</div>
-          </div>
-          <canvas id="chart-interets" height="220"></canvas>
-        </div>
-        <div class="chart-card full-width">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Comparaison européenne – Dette / PIB 2023</div>
-            <div class="chart-card-source">Source : Eurostat 2023</div>
-          </div>
-          <canvas id="chart-dette-ue" height="200"></canvas>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== SECTION RECETTES ==================== -->
-    <section id="section-recettes" class="section">
-      <div class="page-header">
-        <div class="page-eyebrow">Recettes fiscales</div>
-        <h2 class="page-title">Fiscalité & prélèvements</h2>
-        <p class="page-desc">Structure des recettes de l'État : TVA, impôt sur le revenu, impôt sur les sociétés et évolution des prélèvements obligatoires.</p>
-      </div>
-      <div class="sub-kpi-row" id="recettes-kpis"></div>
-      <div class="chart-grid">
-        <div class="chart-card full-width">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Recettes totales de l'État (Mds €)</div>
-            <div class="chart-card-source">Source : DGFiP, PLF 2024</div>
-          </div>
-          <canvas id="chart-recettes-total" height="200"></canvas>
-        </div>
-        <div class="chart-card">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Répartition par impôt (2024)</div>
-            <div class="chart-card-source">Source : PLF 2024</div>
-          </div>
-          <canvas id="chart-recettes-repartition" height="220"></canvas>
-        </div>
-        <div class="chart-card">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Prélèvements obligatoires / PIB (%)</div>
-            <div class="chart-card-source">Source : INSEE</div>
-          </div>
-          <canvas id="chart-po-pib" height="220"></canvas>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== SECTION DÉFICIT ==================== -->
-    <section id="section-deficit" class="section">
-      <div class="page-header">
-        <div class="page-eyebrow">Déficit public</div>
-        <h2 class="page-title">Écart recettes / dépenses</h2>
-        <p class="page-desc">Évolution du déficit public en % du PIB, comparaison avec le seuil de Maastricht (−3%) et positionnement européen.</p>
-      </div>
-      <div class="sub-kpi-row" id="deficit-kpis"></div>
-      <div class="chart-grid">
-        <div class="chart-card full-width">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Déficit public / PIB (%) – seuil Maastricht à −3%</div>
-            <div class="chart-card-source">Source : INSEE, Eurostat</div>
-          </div>
-          <canvas id="chart-deficit-pib" height="220"></canvas>
-        </div>
-        <div class="chart-card">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Déficit en valeur absolue (Mds €)</div>
-            <div class="chart-card-source">Source : Cour des Comptes 2024</div>
-          </div>
-          <canvas id="chart-deficit-abs" height="220"></canvas>
-        </div>
-        <div class="chart-card">
-          <div class="chart-card-header">
-            <div class="chart-card-title">Comparaison UE – Déficit / PIB 2023</div>
-            <div class="chart-card-source">Source : Eurostat 2023</div>
-          </div>
-          <canvas id="chart-deficit-ue" height="220"></canvas>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-sources">
-        <strong>Sources</strong> : INSEE · Direction du Budget · DGFiP · Cour des Comptes · Banque de France · Eurostat · PLF 2024 · FMI
-      </div>
-      <div class="footer-note">
-        Données indicatives basées sur les documents officiels. Dernière mise à jour : 2024. Ce site est 100% statique, aucune donnée collectée.
-      </div>
-      <div class="footer-github">
-        <a href="https://github.com" target="_blank" rel="noopener">Voir sur GitHub Pages</a>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- ═══════════════ BUDGET ═══════════════ -->
+  <section id="section-budget" class="section">
+    <div class="page-header">
+      <div class="page-eyebrow">Budget de l'État</div>
+      <h2 class="page-title">Dépenses & Solde budgétaire</h2>
+      <p class="page-desc">Évolution des dépenses totales, répartition par mission ministérielle, masse salariale et investissement public.</p>
+    </div>
+    <div class="sub-kpi-row" id="budget-kpis"></div>
+    <div class="chart-grid">
+      <div class="chart-card span2">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Dépenses totales de l'État (Mds €)</div>
+          <div class="chart-card-source">Direction du Budget · PLF 2024</div>
+        </div>
+        <canvas id="chart-depenses" height="180"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Solde budgétaire (Mds €)</div>
+          <div class="chart-card-source">Direction du Budget</div>
+        </div>
+        <canvas id="chart-solde" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Dépenses par mission 2024 (Mds €)</div>
+          <div class="chart-card-source">PLF 2024</div>
+        </div>
+        <canvas id="chart-missions" height="220"></canvas>
+      </div>
+      <div class="chart-card span2">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Évolution par grande mission 2019–2024 (Mds €)</div>
+          <div class="chart-card-source">Direction du Budget</div>
+        </div>
+        <canvas id="chart-missions-histo" height="180"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Masse salariale État (Mds €)</div>
+          <div class="chart-card-source">Direction du Budget</div>
+        </div>
+        <canvas id="chart-masse-sal" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Investissement public / PIB (%)</div>
+          <div class="chart-card-source">INSEE · FMI</div>
+        </div>
+        <canvas id="chart-invest" height="220"></canvas>
+      </div>
+    </div>
+    <!-- Mission detail table -->
+    <div class="table-card">
+      <div class="table-card-title">Détail des missions budgétaires 2024</div>
+      <table class="data-table" id="missions-table"></table>
+    </div>
+  </section>
+
+  <!-- ═══════════════ DETTE ═══════════════ -->
+  <section id="section-dette" class="section">
+    <div class="page-header">
+      <div class="page-eyebrow">Dette publique</div>
+      <h2 class="page-title">Endettement & charge financière</h2>
+      <p class="page-desc">Évolution de la dette publique, sa structure par sous-secteur, le coût financier et la comparaison avec les partenaires européens.</p>
+    </div>
+    <div class="sub-kpi-row" id="dette-kpis"></div>
+    <div class="chart-grid">
+      <div class="chart-card span2">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Dette publique / PIB (%) · 2019–2024</div>
+          <div class="chart-card-source">INSEE · Eurostat</div>
+        </div>
+        <canvas id="chart-dette-pib" height="180"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Dette absolue (Mds €)</div>
+          <div class="chart-card-source">Banque de France</div>
+        </div>
+        <canvas id="chart-dette-abs" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Charge d'intérêts annuelle (Mds €)</div>
+          <div class="chart-card-source">Direction du Budget · AFT</div>
+        </div>
+        <canvas id="chart-interets" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Taux OAT 10 ans (%)</div>
+          <div class="chart-card-source">Banque de France · AFT</div>
+        </div>
+        <canvas id="chart-taux-10ans" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Dette par habitant (€)</div>
+          <div class="chart-card-source">INSEE · calcul</div>
+        </div>
+        <canvas id="chart-dette-hab" height="220"></canvas>
+      </div>
+      <div class="chart-card span2">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Comparaison européenne — Dette / PIB 2023 (%)</div>
+          <div class="chart-card-source">Eurostat 2023</div>
+        </div>
+        <canvas id="chart-dette-ue" height="180"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Structure de la dette par sous-secteur 2024</div>
+          <div class="chart-card-source">INSEE · Banque de France</div>
+        </div>
+        <canvas id="chart-dette-struct" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Maturité moyenne de la dette (années)</div>
+          <div class="chart-card-source">Agence France Trésor</div>
+        </div>
+        <canvas id="chart-maturite" height="220"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ RECETTES ═══════════════ -->
+  <section id="section-recettes" class="section">
+    <div class="page-header">
+      <div class="page-eyebrow">Recettes fiscales</div>
+      <h2 class="page-title">Fiscalité & prélèvements</h2>
+      <p class="page-desc">Structure des recettes de l'État, décomposition par impôt et comparaison internationale du niveau de prélèvements.</p>
+    </div>
+    <div class="sub-kpi-row" id="recettes-kpis"></div>
+    <div class="chart-grid">
+      <div class="chart-card span2">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Recettes totales de l'État (Mds €)</div>
+          <div class="chart-card-source">DGFiP · PLF 2024</div>
+        </div>
+        <canvas id="chart-recettes-total" height="180"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Répartition par impôt 2024 (Mds €)</div>
+          <div class="chart-card-source">PLF 2024</div>
+        </div>
+        <canvas id="chart-recettes-rep" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Prélèvements obligatoires / PIB (%)</div>
+          <div class="chart-card-source">INSEE</div>
+        </div>
+        <canvas id="chart-po-pib" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">TVA (Mds €)</div>
+          <div class="chart-card-source">DGFiP</div>
+        </div>
+        <canvas id="chart-tva" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Impôt sur le revenu (Mds €)</div>
+          <div class="chart-card-source">DGFiP</div>
+        </div>
+        <canvas id="chart-ir" height="220"></canvas>
+      </div>
+      <div class="chart-card span2">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Prélèvements obligatoires / PIB — Comparaison UE 2023 (%)</div>
+          <div class="chart-card-source">Eurostat 2023</div>
+        </div>
+        <canvas id="chart-po-ue" height="180"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ DÉFICIT ═══════════════ -->
+  <section id="section-deficit" class="section">
+    <div class="page-header">
+      <div class="page-eyebrow">Déficit public</div>
+      <h2 class="page-title">Écart recettes / dépenses</h2>
+      <p class="page-desc">Évolution du déficit public en % du PIB, solde primaire, comparaison avec le seuil Maastricht (−3%) et positionnement européen.</p>
+    </div>
+    <div class="sub-kpi-row" id="deficit-kpis"></div>
+    <div class="chart-grid">
+      <div class="chart-card span2">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Déficit public / PIB (%) avec seuil Maastricht à −3%</div>
+          <div class="chart-card-source">INSEE · Eurostat</div>
+        </div>
+        <canvas id="chart-deficit-pib" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Déficit en valeur absolue (Mds €)</div>
+          <div class="chart-card-source">Cour des Comptes 2024</div>
+        </div>
+        <canvas id="chart-deficit-abs" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Solde primaire / PIB (hors intérêts, %)</div>
+          <div class="chart-card-source">Calcul DG Trésor</div>
+        </div>
+        <canvas id="chart-solde-primaire" height="220"></canvas>
+      </div>
+      <div class="chart-card span2">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Comparaison UE — Déficit / PIB 2023 (%)</div>
+          <div class="chart-card-source">Eurostat 2023</div>
+        </div>
+        <canvas id="chart-deficit-ue" height="180"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ RÉGIONS ═══════════════ -->
+  <section id="section-regions" class="section">
+    <div class="page-header">
+      <div class="page-eyebrow">Données régionales</div>
+      <h2 class="page-title">Finances des territoires</h2>
+      <p class="page-desc">PIB régional, dépenses des collectivités, taux de chômage et dette par région. Source : INSEE, Comptes régionaux 2022, DGCL.</p>
+    </div>
+
+    <!-- Metric selector -->
+    <div class="metric-selector" id="region-metric-selector">
+      <span class="metric-selector-label">Indicateur&nbsp;:</span>
+      <button class="metric-btn active" data-metric="pib_par_hab">PIB / hab.</button>
+      <button class="metric-btn" data-metric="taux_chomage">Chômage</button>
+      <button class="metric-btn" data-metric="depenses_par_hab">Dépenses / hab.</button>
+      <button class="metric-btn" data-metric="dette_region">Dette région</button>
+      <button class="metric-btn" data-metric="part_pib_national">Part PIB nat.</button>
+    </div>
+
+    <div class="region-layout">
+      <div class="region-bar-wrap">
+        <canvas id="chart-region-bar" height="500"></canvas>
+      </div>
+      <div class="region-table-wrap">
+        <table class="data-table" id="region-table"></table>
+      </div>
+    </div>
+
+    <div class="chart-grid" style="margin-top:1px">
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">PIB régional (Mds €)</div>
+          <div class="chart-card-source">INSEE 2022</div>
+        </div>
+        <canvas id="chart-region-pib" height="250"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Taux de chômage par région (%)</div>
+          <div class="chart-card-source">INSEE 2022</div>
+        </div>
+        <canvas id="chart-region-chomage" height="250"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ COMPARATEUR ═══════════════ -->
+  <section id="section-comparateur" class="section">
+    <div class="page-header">
+      <div class="page-eyebrow">Outil de comparaison</div>
+      <h2 class="page-title">Superposition d'indicateurs</h2>
+      <p class="page-desc">Sélectionnez jusqu'à 4 séries temporelles pour les afficher ensemble ou côte à côte. Comparez les dynamiques et corrélations.</p>
+    </div>
+
+    <div class="comparateur-controls">
+      <div class="comp-selectors" id="comp-selectors">
+        <!-- Series selectors injected by JS -->
+      </div>
+      <div class="comp-mode-row">
+        <span class="metric-selector-label">Mode d'affichage&nbsp;:</span>
+        <button class="metric-btn active" id="mode-overlay" data-mode="overlay">Superposé</button>
+        <button class="metric-btn" id="mode-side" data-mode="side">Côte à côte</button>
+        <button class="metric-btn" id="mode-indexed" data-mode="indexed">Indexé base 100</button>
+      </div>
+      <div class="comp-actions">
+        <button class="action-btn" id="add-serie">+ Ajouter une série</button>
+        <button class="action-btn secondary" id="reset-comp">Réinitialiser</button>
+      </div>
+    </div>
+
+    <div id="comp-chart-area" class="comp-chart-area">
+      <div class="comp-overlay-wrap" id="comp-overlay-wrap">
+        <canvas id="chart-comp-overlay" height="320"></canvas>
+        <div class="comp-legend" id="comp-legend"></div>
+      </div>
+    </div>
+
+    <div class="corr-panel" id="corr-panel">
+      <div class="corr-title">Corrélation entre les séries sélectionnées</div>
+      <div class="corr-matrix" id="corr-matrix"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TENDANCES ═══════════════ -->
+  <section id="section-tendances" class="section">
+    <div class="page-header">
+      <div class="page-eyebrow">Analyse longue durée · 2010–2024</div>
+      <h2 class="page-title">Tendances structurelles</h2>
+      <p class="page-desc">Séries longues depuis 2010 pour identifier les tendances de fond, les ruptures conjoncturelles (Covid, inflation) et les trajectoires.</p>
+    </div>
+    <div class="sub-kpi-row" id="tendances-kpis"></div>
+    <div class="chart-grid">
+      <div class="chart-card span2">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Dette / PIB — Série longue 2010–2024 (%)</div>
+          <div class="chart-card-source">INSEE · Eurostat</div>
+        </div>
+        <canvas id="chart-long-dette" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Déficit / PIB 2010–2024 (%)</div>
+          <div class="chart-card-source">INSEE</div>
+        </div>
+        <canvas id="chart-long-deficit" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Croissance & Inflation 2010–2024 (%)</div>
+          <div class="chart-card-source">INSEE · Banque de France</div>
+        </div>
+        <canvas id="chart-long-macro" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Charge d'intérêts 2010–2024 (Mds €)</div>
+          <div class="chart-card-source">Direction du Budget</div>
+        </div>
+        <canvas id="chart-long-interets" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Chômage & Prélèvements 2010–2024 (%)</div>
+          <div class="chart-card-source">INSEE</div>
+        </div>
+        <canvas id="chart-long-po" height="220"></canvas>
+      </div>
+      <div class="chart-card span2">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Recettes vs Dépenses État 2010–2024 (Mds €)</div>
+          <div class="chart-card-source">Direction du Budget · DGFiP</div>
+        </div>
+        <canvas id="chart-long-recettes-dep" height="200"></canvas>
+      </div>
+      <div class="chart-card span2">
+        <div class="chart-card-header">
+          <div class="chart-card-title">Taux d'intérêt OAT 10 ans 2010–2024 (%)</div>
+          <div class="chart-card-source">Banque de France · AFT</div>
+        </div>
+        <canvas id="chart-long-taux" height="180"></canvas>
+      </div>
+    </div>
+
+    <!-- Rupture events timeline -->
+    <div class="timeline-card">
+      <div class="timeline-title">Chronologie des ruptures budgétaires</div>
+      <div class="timeline" id="ruptures-timeline"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-sources"><strong>Sources</strong> : INSEE · Direction du Budget · DGFiP · Cour des Comptes · Banque de France · Eurostat · PLF 2024 · FMI · Agence France Trésor · DGCL</div>
+    <div class="footer-note">Données indicatives basées sur documents officiels publiés. Couverture : 2010–2024. Site 100% statique, aucune donnée collectée.</div>
+    <div class="footer-github"><a href="https://github.com/vo1le/fr-finance-status" target="_blank" rel="noopener">Voir sur GitHub Pages →</a></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

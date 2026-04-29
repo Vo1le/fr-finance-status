@@ -1,8 +1,8 @@
 {
   "meta": {
-    "source": "Direction du Budget, PLF 2024, Lois de Finances",
+    "source": "Direction du Budget, PLF 2024, Lois de Finances rectificatives",
     "unite": "milliards d'euros",
-    "derniere_maj": "2024"
+    "serie": "2019-2024"
   },
   "depenses_totales": {
     "label": "Dépenses totales de l'État",
@@ -15,20 +15,6 @@
       { "annee": 2024, "valeur": 548.3 }
     ]
   },
-  "depenses_par_mission": {
-    "label": "Dépenses par mission (2024, Mds€)",
-    "serie": [
-      { "mission": "Enseignement scolaire", "valeur": 79.6 },
-      { "mission": "Défense", "valeur": 47.2 },
-      { "mission": "Recherche & Enseignement sup.", "valeur": 31.8 },
-      { "mission": "Solidarité & intégration", "valeur": 29.3 },
-      { "mission": "Travail & emploi", "valeur": 23.1 },
-      { "mission": "Sécurités", "valeur": 22.9 },
-      { "mission": "Justice", "valeur": 11.5 },
-      { "mission": "Agriculture", "valeur": 4.9 },
-      { "mission": "Autres", "valeur": 82.4 }
-    ]
-  },
   "solde_budgetaire": {
     "label": "Solde budgétaire de l'État",
     "serie": [
@@ -38,6 +24,59 @@
       { "annee": 2022, "valeur": -151.3 },
       { "annee": 2023, "valeur": -173.0 },
       { "annee": 2024, "valeur": -154.0 }
+    ]
+  },
+  "depenses_par_mission": {
+    "label": "Dépenses par mission (2024, Mds€)",
+    "serie": [
+      { "mission": "Enseignement scolaire",       "valeur": 79.6,  "evolution": 3.2 },
+      { "mission": "Défense",                      "valeur": 47.2,  "evolution": 7.5 },
+      { "mission": "Recherche & Ens. sup.",        "valeur": 31.8,  "evolution": 4.1 },
+      { "mission": "Solidarité & intégration",     "valeur": 29.3,  "evolution": 2.8 },
+      { "mission": "Travail & emploi",             "valeur": 23.1,  "evolution": -1.2 },
+      { "mission": "Sécurités",                    "valeur": 22.9,  "evolution": 4.4 },
+      { "mission": "Remboursements & dégrèvements","valeur": 21.4,  "evolution": -3.1 },
+      { "mission": "Justice",                      "valeur": 11.5,  "evolution": 8.2 },
+      { "mission": "Écologie & territoires",       "valeur": 10.8,  "evolution": 12.4 },
+      { "mission": "Santé",                        "valeur": 9.2,   "evolution": 1.9 },
+      { "mission": "Collectivités territoriales",  "valeur": 8.4,   "evolution": 2.1 },
+      { "mission": "Agriculture",                  "valeur": 4.9,   "evolution": 6.3 },
+      { "mission": "Culture",                      "valeur": 4.1,   "evolution": 3.4 },
+      { "mission": "Autres",                       "valeur": 43.1,  "evolution": 1.8 }
+    ]
+  },
+  "missions_historique": {
+    "label": "Dépenses par grande mission 2019-2024 (Mds€)",
+    "missions": ["Éducation","Défense","Travail","Sécurités","Justice","Écologie"],
+    "serie": [
+      { "annee": 2019, "valeurs": [72.1, 35.9, 18.4, 20.8, 8.8, 6.9] },
+      { "annee": 2020, "valeurs": [74.0, 37.5, 21.1, 21.4, 9.2, 8.4] },
+      { "annee": 2021, "valeurs": [75.8, 40.9, 24.4, 21.8, 9.9, 9.1] },
+      { "annee": 2022, "valeurs": [76.8, 43.9, 22.2, 22.2, 10.6, 9.4] },
+      { "annee": 2023, "valeurs": [77.9, 43.8, 23.4, 22.6, 11.0, 10.2] },
+      { "annee": 2024, "valeurs": [79.6, 47.2, 23.1, 22.9, 11.5, 10.8] }
+    ]
+  },
+  "masse_salariale": {
+    "label": "Masse salariale État (Mds €)",
+    "serie": [
+      { "annee": 2019, "valeur": 92.1 },
+      { "annee": 2020, "valeur": 103.2 },
+      { "annee": 2021, "valeur": 98.4 },
+      { "annee": 2022, "valeur": 96.8 },
+      { "annee": 2023, "valeur": 98.2 },
+      { "annee": 2024, "valeur": 100.1 }
+    ]
+  },
+  "investissement_public": {
+    "label": "Investissement public / PIB (%)",
+    "serie": [
+      { "annee": 2019, "valeur": 3.5 },
+      { "annee": 2020, "valeur": 4.7 },
+      { "annee": 2021, "valeur": 4.3 },
+      { "annee": 2022, "valeur": 4.1 },
+      { "annee": 2023, "valeur": 4.0 },
+      { "annee": 2024, "valeur": 3.9 }
     ]
   }
 }
