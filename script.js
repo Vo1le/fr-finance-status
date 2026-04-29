@@ -52,7 +52,7 @@ const KPI_DEFS = [
     eyebrow: 'Endettement souverain',
     getValue: (d) => d.dette?.dette_pib?.serie?.at(-1)?.valeur,
     unit: '%',
-    desc: 'Ratio d'endettement public sur le PIB',
+    desc: "Ratio d'endettement public sur le PIB",
     source: 'INSEE · Eurostat · 2024',
     chartData: (d) => ({
       labels: d.dette.dette_pib.serie.map(x=>x.annee),
